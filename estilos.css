@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+body {
+    background: linear-gradient(to right bottom, cyan 0%, pink 70%);
+    height: 100vh;
+    display: flex;
+}
+.texts {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.name {
+    font-size: 3rem;
+    margin-bottom: .5em;
+}
+.item {
+    position: relative;
+    padding-left: 1rem;
+
+}
+.paragraph {
+    font-size: 2rem;
+    font-weight: 300;
+
+}
+.item::before {
+    content: "";
+    display: block;
+    background: blue;
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    clip-path: var(--clippy);
+    transition: clip-path 2s;
+}
+.paragraph::before {
+    background: rgb(214, 47, 47);
+}
+.item:hover::before {
+    clip-path: polygon(0 0, 81% 0, 100% 100%, 0 100%);
+}
